@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio | My Projects</title>
+    <meta
+      name="description"
+      content="A curated selection of my best projects with descriptions, tech stack, and links."
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo">My<span>Portfolio</span></a>
+        <nav class="main-nav" aria-label="Primary navigation">
+          <button
+            class="nav-toggle"
+            aria-expanded="false"
+            aria-controls="primary-menu"
+          >
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+            <span class="sr-only">Toggle navigation</span>
+          </button>
+          <ul id="primary-menu" class="nav-list">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
+            <li><a href="services.html" class="nav-link">Services</a></li>
+            <li><a href="testimonials.html" class="nav-link">Testimonials</a></li>
+            <li><a href="blog.html" class="nav-link">Blog</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+            <li><a href="resume.html" class="nav-link">Resume</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page" aria-labelledby="portfolio-title">
+      <section class="page-header">
+        <div class="container">
+          <h1 id="portfolio-title">Portfolio/Projects</h1>
+          <p class="page-intro">
+            Featured work that highlights my skills, problem‑solving abilities, and the impact I had on the projects I worked on.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" aria-label="Project filters">
+        <div class="container">
+          <div class="filters" aria-label="Project categories">
+            <button class="filter-btn is-active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="ai">AI</button>
+            <button class="filter-btn" data-filter="web">Web Applications</button>
+            <button class="filter-btn" data-filter="mobile">Mobile Applications</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-label="Featured projects">
+        <div class="container projects-grid">
+          <article class="project-card" data-category="ai">
+            <div class="project-thumb-placeholder">
+              <span>AI / Gen‑AI</span>
+            </div>
+            <div class="project-content">
+              <h2 class="project-title">
+                RAG‑Based Workflow for Energy Regulator
+              </h2>
+              <p class="project-description">
+                AI‑based project that uses a RAG‑style approach to help OFGEM, a
+                regulator in the energy industry, make workflows and document
+                reviewing capabilities more efficient and effective.
+              </p>
+              <p class="project-tech">
+                <strong>Technologies:</strong> Python, Google‑based linked
+                agents, Google NotebookLM, Gemini 2.5 Flash, GPT‑5
+              </p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="ai">
+            <div class="project-thumb-placeholder">
+              <span>AI / Agentic</span>
+            </div>
+            <div class="project-content">
+              <h2 class="project-title">
+                Finance Operations Agentic Solution (Lloyds Banking Group)
+              </h2>
+              <p class="project-description">
+                Business development project at Accenture where I worked with two
+                developers to refine an agentic solution to increase the
+                effectivity and efficiency of finance‑related operations for
+                Lloyds Banking Group.
+              </p>
+              <p class="project-tech">
+                <strong>Technologies:</strong> Python, Copilot AI assistant,
+                agentic workflow concepts
+              </p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="ai">
+            <div class="project-thumb-placeholder">
+              <span>AI Assistant</span>
+            </div>
+            <div class="project-content">
+              <h2 class="project-title">
+                Digital AI Assistant “Cora” for Mortgage Sector (NatWest)
+              </h2>
+              <p class="project-description">
+                Front‑end development work at Accenture on a digital AI
+                assistant (Cora) within the mortgage sector of NatWest, using
+                JavaScript and React as the main language and framework.
+              </p>
+              <p class="project-tech">
+                <strong>Technologies:</strong> JavaScript, React, Figma
+              </p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="web">
+            <div class="project-thumb-placeholder">
+              <span>UI / Data</span>
+            </div>
+            <div class="project-content">
+              <h2 class="project-title">
+                UI Development for NHSE via Palantir Foundry
+              </h2>
+              <p class="project-description">
+                Assisted with UI development via React and the Mantine UI
+                library for NHSE within Palantir's Foundry platform, acquiring
+                knowledge of ontologies, app development via Foundry’s
+                point‑and‑click interface, and the structure of Foundry.
+              </p>
+              <p class="project-tech">
+                <strong>Technologies:</strong> React, Mantine UI, Palantir
+                Foundry
+              </p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="web">
+            <div class="project-thumb-placeholder">
+              <span>Full‑Stack / Cloud</span>
+            </div>
+            <div class="project-content">
+              <h2 class="project-title">File‑Sharing Website with AWS</h2>
+              <p class="project-description">
+                Full‑stack file‑sharing website built as a university project,
+                using Node.js and web APIs together with Amazon’s cloud
+                computing services (AWS) to store, extract, and manage user
+                data.
+              </p>
+              <p class="project-tech">
+                <strong>Technologies:</strong> Node.js, web APIs, AWS, Visual
+                Studio Code, GitHub
+              </p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="web">
+            <div class="project-thumb-placeholder">
+              <span>Full‑Stack / Cloud</span>
+            </div>
+            <div class="project-content">
+              <h2 class="project-title">E‑Learning Tool (Moodle‑Inspired)</h2>
+              <p class="project-description">
+                Individual project that used JavaScript and jQuery on a Node.js
+                runtime with Handlebars, HTML, and CSS to develop an e‑learning
+                tool that partially implements the Moodle framework, deployed on
+                DigitalOcean with user data stored in SQLite.
+              </p>
+              <p class="project-tech">
+                <strong>Technologies:</strong> JavaScript, jQuery, Node.js,
+                Handlebars, HTML, CSS, SQLite, DigitalOcean
+              </p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="mobile">
+            <div class="project-thumb-placeholder">
+              <span>Android</span>
+            </div>
+            <div class="project-content">
+              <h2 class="project-title">MeetUp — Interest‑Based Social App</h2>
+              <p class="project-description">
+                Android app developed at Coventry University that enables users
+                to find and contact people within a given proximity who have the
+                same or similar interests, and to join or create multiple
+                invite‑only chat rooms.
+              </p>
+              <p class="project-tech">
+                <strong>Technologies:</strong> Java, Android Studio, Firebase,
+                Google services APIs, GitHub
+              </p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="mobile">
+            <div class="project-thumb-placeholder">
+              <span>Android</span>
+            </div>
+            <div class="project-content">
+              <h2 class="project-title">
+                InstantInvites — Event &amp; Location App
+              </h2>
+              <p class="project-description">
+                Android app developed at Nottingham Trent University that
+                enables users to instantly create, manage, and send event
+                details to selected contacts, with a map that shows the user’s
+                current location, nearby places of interest, and an accurate
+                virtual compass.
+              </p>
+              <p class="project-tech">
+                <strong>Technologies:</strong> Java, Android Studio, Google
+                Maps/location APIs, sensor APIs
+              </p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="mobile">
+            <div class="project-thumb-placeholder">
+              <span>Android / OBD II</span>
+            </div>
+            <div class="project-content">
+              <h2 class="project-title">
+                VehiAssist — Vehicle Servicing App with OBD II
+              </h2>
+              <p class="project-description">
+                Major project for the master’s course: an Android app that
+                allows users to find and contact registered servicers for
+                vehicle breakdowns and transmits real‑time vehicle data such as
+                Engine RPM, Mass Air Flow, and Fuel Consumption rate using
+                Bluetooth, a physical OBD II Reader, and an OBD II Reader
+                program.
+              </p>
+              <p class="project-tech">
+                <strong>Technologies:</strong> Java, Android Studio, Bluetooth,
+                OBD II Reader and program
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/in/nkosilathisibanda" aria-label="LinkedIn" class="social-icon">in</a>
+          <a href="https://github.com/thekosiguy" aria-label="GitHub" class="social-icon">gh</a>
+        </div>
+        <p class="footer-copy">
+          &copy; <span id="current-year"></span> Nkosilathi Sibanda. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+  </html>
+

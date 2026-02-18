@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home | My Portfolio</title>
+    <meta
+      name="description"
+      content="Personal portfolio website showcasing my skills, projects, and experience."
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo">My<span>Portfolio</span></a>
+        <nav class="main-nav" aria-label="Primary navigation">
+          <button
+            class="nav-toggle"
+            aria-expanded="false"
+            aria-controls="primary-menu"
+          >
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+            <span class="sr-only">Toggle navigation</span>
+          </button>
+          <ul id="primary-menu" class="nav-list">
+            <li><a href="index.html" class="nav-link active">Home</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+            <li><a href="services.html" class="nav-link">Services</a></li>
+            <li><a href="testimonials.html" class="nav-link">Testimonials</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+            <li><a href="resume.html" class="nav-link">Resume</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container hero-inner">
+          <div class="hero-text">
+            <p class="hero-kicker">Hi, I’m Nkosilathi Sibanda</p>
+            <h1 id="hero-title" class="hero-title">
+              Aspiring Software Engineer building AI‑driven, production‑ready applications
+            </h1>
+            <p class="hero-subtitle">
+              MSc Computer Science graduate and former Accenture engineer focused
+              on creating clean, maintainable software and practical AI‑assisted
+              features.
+            </p>
+            <p class="hero-description">
+              I’ve worked on Gen‑AI assistants, RAG‑inspired workflows and
+              full‑stack applications that turn complex requirements into
+              reliable, user‑ready products. I’m currently seeking permanent
+              full‑time software engineering or entry‑level AI roles, and I’m
+              also open to freelance and short‑term contracts. Based in the UK,
+              I’m open to relocation to English‑speaking countries and remote
+              work.
+            </p>
+            <ul class="fun-facts-list">
+              <li>
+                <strong>Core stack:</strong> JavaScript, TypeScript, React,
+                Python, Java, C#, C++, HTML/CSS, SQL
+              </li>
+              <li>
+                <strong>Experience:</strong> Gen‑AI assistants, RAG‑style
+                workflows, Android apps, and full‑stack web applications
+              </li>
+              <li>
+                <strong>Cloud:</strong> AWS, Azure, Oracle Cloud, Google
+                Cloud Platform (foundations), Render, Railway, Vercel, DigitalOcean 
+              </li>
+            </ul>
+            <div class="hero-actions">
+              <a href="portfolio.html" class="btn btn-primary">View My Projects</a>
+              <a href="assets/Nkosilathi Sibanda's CV.pdf" class="btn btn-outline"
+                >Download Resume</a
+              >
+            </div>
+            <div class="hero-actions" style="margin-top: 0.8rem; gap: 0.6rem">
+              <a
+                href="https://github.com/thekosiguy"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-link"
+                >GitHub</a
+              >
+              <a
+                href="https://www.linkedin.com/in/nkosilathisibanda"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-link"
+                >LinkedIn</a
+              >
+            </div>
+          </div>
+          <div class="hero-media">
+            <div class="hero-image-placeholder">
+              <img
+                src="assets/images/me.jpg"
+                alt="Nkosilathi Sibanda's professional photo"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="home-highlight" aria-labelledby="home-highlight-title">
+        <div class="container">
+          <h2 id="home-highlight-title">What You’ll Find Here</h2>
+          <div class="home-grid">
+            <article class="home-card">
+              <h3>About Me</h3>
+              <p>
+                Learn about my background, interests, and career journey that led
+                me to what I do today.
+              </p>
+              <a href="about.html" class="text-link">Read more</a>
+            </article>
+            <article class="home-card">
+              <h3>Projects</h3>
+              <p>
+                Explore a curated selection of my favorite projects, including
+                live demos and source code.
+              </p>
+              <a href="portfolio.html" class="text-link">View projects</a>
+            </article>
+           
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/in/nkosilathisibanda" aria-label="LinkedIn" class="social-icon">in</a>
+          <a href="https://github.com/thekosiguy" aria-label="GitHub" class="social-icon">gh</a>
+        </div>
+        <p class="footer-copy">
+          &copy; <span id="current-year"></span> Nkosilathi Sibanda. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+  </html>

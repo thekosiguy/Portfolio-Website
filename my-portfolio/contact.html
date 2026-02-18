@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | Get in Touch</title>
+    <meta
+      name="description"
+      content="Contact form, email, and social links for reaching out about projects, collaborations, or opportunities."
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo">My<span>Portfolio</span></a>
+        <nav class="main-nav" aria-label="Primary navigation">
+          <button
+            class="nav-toggle"
+            aria-expanded="false"
+            aria-controls="primary-menu"
+          >
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+            <span class="sr-only">Toggle navigation</span>
+          </button>
+          <ul id="primary-menu" class="nav-list">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+            <li><a href="services.html" class="nav-link">Services</a></li>
+            <li><a href="testimonials.html" class="nav-link">Testimonials</a></li>
+            <li><a href="contact.html" class="nav-link active">Contact</a></li>
+            <li><a href="resume.html" class="nav-link">Resume</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page" aria-labelledby="contact-title">
+      <section class="page-header">
+        <div class="container">
+          <h1 id="contact-title">Contact</h1>
+          <p class="page-intro">
+            Have a role/project in mind or just want to say hello? Reach out below.
+          </p>
+        </div>
+      </section>
+
+      <section class="section contact-layout" aria-label="Contact options">
+        <div class="container contact-grid">
+          <div class="contact-form-wrapper">
+            <h2>Send a Message</h2>
+            <form
+              class="contact-form"
+              action="https://formspree.io/f/xgolzybd"
+              method="POST"
+            >
+              <div class="form-field">
+                <label for="name">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Your name"
+                  required
+                />
+              </div>
+              <div class="form-field">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="you@example.com"
+                  required
+                />
+              </div>
+              <div class="form-field">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  placeholder="Tell me a bit about what you're looking for..."
+                  required
+                ></textarea>
+              </div>
+              <input
+                type="hidden"
+                name="_subject"
+                value="New message from portfolio contact form"
+              />
+              <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+          </div>
+
+          <aside class="contact-details">
+            <h2>Other Ways to Reach Me</h2>
+            <p>
+              Prefer email or social media? You can also contact me through the
+              channels below.
+            </p>
+            <ul class="contact-list">
+              <li>
+                <strong>Email:</strong>
+                <a href="mailto:kosi53@hotmail.co.uk">kosi53@hotmail.co.uk</a>
+              </li>
+              <li>
+                <strong>LinkedIn:</strong>
+                <a href="#" target="_blank" rel="noopener noreferrer"
+                  >https://www.linkedin.com/in/nkosilathisibanda</a
+                >
+              </li>
+              <li>
+                <strong>GitHub:</strong>
+                <a href="#" target="_blank" rel="noopener noreferrer"
+                  >github.com/thekosiguy</a
+                >
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/in/nkosilathisibanda" aria-label="LinkedIn" class="social-icon">in</a>
+          <a href="https://github.com/thekosiguy" aria-label="GitHub" class="social-icon">gh</a>
+        </div>
+        <p class="footer-copy">
+          &copy; <span id="current-year"></span> Nkosilathi Sibanda. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+  </html>
+
