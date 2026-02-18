@@ -53,15 +53,6 @@ npx serve .
 - **Certifications**: Oracle Java, OCI, AWS, Google Cloud, and more
 - **Resume**: Comprehensive CV with education and professional timeline
 
-## 🔧 Customizing for Your Use
-
-Edit the HTML files directly to personalize:
-- Update contact email in `contact.html`
-- Modify social links throughout (LinkedIn, GitHub, etc.)
-- Add/remove project cards in `portfolio.html`
-- Update testimonials in `testimonials.html`
-- Replace images in `assets/images/`
-
 ## 📦 No Dependencies
 
 This is a static website with no build tools or external dependencies. Edit, save, and reload in your browser.
