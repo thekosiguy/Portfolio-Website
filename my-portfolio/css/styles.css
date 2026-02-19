@@ -163,9 +163,10 @@ a:hover {
 
 .nav-toggle-bar {
   height: 2px;
-  width: 55%;
+  width: 50%;
   background: var(--color-text);
   border-radius: 999px;
+  margin: 0 auto;
 }
 
 .hero {
@@ -872,6 +873,7 @@ textarea:focus {
 .contact-list a {
   color: var(--color-accent);
   text-decoration: none;
+  word-break: break-word;
 }
 
 .resume-layout .resume-grid {
