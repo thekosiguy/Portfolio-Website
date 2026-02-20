@@ -2,7 +2,7 @@
 
 MSc Computer Science graduate and former Accenture development analyst & engineer. I build AI-driven, production-ready applications and this portfolio showcases my experience with Gen-AI assistants, RAG workflows, and full-stack development.
 
-**Live Site:** https://portfolio-website-w66z.onrender.com
+**Live Site:** https://nkosilathi-portfolio.netlify.app
 
 ## ✨ Features
 
