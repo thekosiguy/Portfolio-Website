@@ -82,7 +82,7 @@ npm run test:coverage # Coverage report
 
 **Core Stack:** JavaScript, TypeScript, React, Python, Java, C#, HTML/CSS, SQL  
 **Experience:** Gen-AI assistants, RAG workflows, Android apps, full-stack web applications  
-**Cloud:** AWS, Azure, Oracle Cloud, GCP foundations
+**Cloud:** AWS, Azure, Oracle Cloud, Google Cloud Platform
 
 Currently seeking permanent full-time software engineering or entry-level AI roles. Open to freelance, short-term contracts, and remote work. Based in the UK, open to relocation to English-speaking countries.
 
