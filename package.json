@@ -1,0 +1,30 @@
+{
+  "name": "portfolio-quality-improvements",
+  "version": "1.0.0",
+  "description": "Multi-page portfolio website with quality improvements",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "build:css": "postcss my-portfolio/css/styles.css -o my-portfolio/css/styles.min.css --use autoprefixer cssnano",
+    "build:js": "terser my-portfolio/js/script.js -o my-portfolio/js/script.min.js --compress --mangle",
+    "build:images": "node scripts/optimize-images.js",
+    "build": "npm run build:css && npm run build:js && npm run build:images"
+  },
+  "keywords": ["portfolio", "responsive", "accessibility", "performance"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "vitest": "^1.0.0",
+    "fast-check": "^3.15.0",
+    "@vitest/ui": "^1.0.0",
+    "jsdom": "^23.0.0",
+    "postcss": "^8.4.32",
+    "postcss-cli": "^11.0.0",
+    "autoprefixer": "^10.4.16",
+    "cssnano": "^6.0.2",
+    "terser": "^5.26.0",
+    "sharp": "^0.33.1"
+  }
+}

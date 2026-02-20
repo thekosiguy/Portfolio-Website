@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Validation Demo</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: #0f172a;
+      color: #e2e8f0;
+    }
+
+    h1 {
+      color: #38bdf8;
+      margin-bottom: 1rem;
+    }
+
+    .demo-info {
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .demo-info h2 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      color: #38bdf8;
+    }
+
+    .demo-info ul {
+      margin: 0.5rem 0;
+      padding-left: 1.5rem;
+    }
+
+    .demo-info li {
+      margin: 0.25rem 0;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .form-field {
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .form-field label {
+      font-size: 0.86rem;
+      color: #94a3b8;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      font: inherit;
+      padding: 0.55rem 0.7rem;
+      border-radius: 0.85rem;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.96);
+      color: #e2e8f0;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(148, 163, 184, 0.9);
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.6);
+    }
+
+    /* Form validation styles */
+    input.is-invalid,
+    textarea.is-invalid {
+      border-color: #ef4444;
+      box-shadow: 0 0 0 1px rgba(239, 68, 68, 0.6);
+    }
+
+    input.is-invalid:focus,
+    textarea.is-invalid:focus {
+      border-color: #ef4444;
+      box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.6);
+    }
+
+    .field-error {
+      display: block;
+      font-size: 0.8rem;
+      color: #ef4444;
+      margin-top: 0.25rem;
+      animation: slideDown 0.2s ease-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-4px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .btn {
+      padding: 0.65rem 1.4rem;
+      border-radius: 1.2rem;
+      border: 1px solid transparent;
+      font: inherit;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: linear-gradient(135deg, #38bdf8, #22c55e);
+      color: #020617;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(34, 197, 94, 0.4);
+    }
+
+    .success-message {
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      color: #22c55e;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      margin-top: 1rem;
+      display: none;
+    }
+
+    .success-message.show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <h1>Contact Form Validation Demo</h1>
+
+  <div class="demo-info">
+    <h2>Test Instructions:</h2>
+    <ul>
+      <li><strong>Required Fields:</strong> Try submitting with empty fields</li>
+      <li><strong>Email Validation:</strong> Try invalid emails like "test", "test@", "test@domain"</li>
+      <li><strong>Real-time Feedback:</strong> Errors appear when you leave a field (blur event)</li>
+      <li><strong>Accessibility:</strong> Check ARIA attributes in DevTools (aria-invalid, aria-describedby, role="alert")</li>
+      <li><strong>Focus Management:</strong> Submit with errors - first invalid field gets focus</li>
+      <li><strong>Re-validation:</strong> Fix an error and type - error disappears immediately</li>
+    </ul>
+  </div>
+
+  <form class="contact-form" onsubmit="handleSubmit(event)">
+    <div class="form-field">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Your name"
+        required
+      />
+    </div>
+
+    <div class="form-field">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="you@example.com"
+        required
+      />
+    </div>
+
+    <div class="form-field">
+      <label for="message">Message</label>
+      <textarea
+        id="message"
+        name="message"
+        rows="5"
+        placeholder="Tell me a bit about what you're looking for..."
+        required
+      ></textarea>
+    </div>
+
+    <button type="submit" class="btn">Send Message</button>
+  </form>
+
+  <div class="success-message" id="successMessage">
+    ✓ Form validation passed! (In production, this would submit to Formspree)
+  </div>
+
+  <script>
+    // Form validation code (same as in script.js)
+    function initFormValidation() {
+      var form = document.querySelector(".contact-form");
+      if (!form) return;
+
+      var fields = form.querySelectorAll("input[required], textarea[required]");
+
+      // Real-time validation on blur
+      fields.forEach(function (field) {
+        field.addEventListener("blur", function () {
+          validateField(field);
+        });
+
+        // Re-validate on input if field was previously invalid
+        field.addEventListener("input", function () {
+          if (field.classList.contains("is-invalid")) {
+            validateField(field);
+          }
+        });
+      });
+
+      // Form submission validation
+      form.addEventListener("submit", function (e) {
+        var isValid = true;
+        var firstInvalidField = null;
+
+        fields.forEach(function (field) {
+          if (!validateField(field)) {
+            isValid = false;
+            if (!firstInvalidField) {
+              firstInvalidField = field;
+            }
+          }
+        });
+
+        if (!isValid) {
+          e.preventDefault();
+          // Focus first invalid field
+          if (firstInvalidField) {
+            firstInvalidField.focus();
+          }
+        }
+      });
+    }
+
+    function validateField(field) {
+      var value = field.value.trim();
+      var type = field.type;
+      var required = field.hasAttribute("required");
+
+      var isValid = true;
+      var errorMessage = "";
+
+      // Required field check
+      if (required && !value) {
+        isValid = false;
+        errorMessage = "This field is required";
+      }
+
+      // Email format validation
+      if (type === "email" && value) {
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(value)) {
+          isValid = false;
+          errorMessage = "Please enter a valid email address";
+        }
+      }
+
+      // Update UI with validation state
+      updateFieldValidation(field, isValid, errorMessage);
+
+      return isValid;
+    }
+
+    function updateFieldValidation(field, isValid, errorMessage) {
+      var fieldWrapper = field.closest(".form-field");
+      if (!fieldWrapper) return;
+
+      var errorId = "error-" + field.id;
+      var errorElement = fieldWrapper.querySelector(".field-error");
+
+      if (!isValid) {
+        // Mark field as invalid
+        field.classList.add("is-invalid");
+        field.setAttribute("aria-invalid", "true");
+
+        // Create or update error message
+        if (!errorElement) {
+          errorElement = document.createElement("span");
+          errorElement.className = "field-error";
+          errorElement.id = errorId;
+          errorElement.setAttribute("role", "alert");
+          errorElement.setAttribute("aria-live", "polite");
+          fieldWrapper.appendChild(errorElement);
+        }
+
+        errorElement.textContent = errorMessage;
+        field.setAttribute("aria-describedby", errorId);
+      } else {
+        // Mark field as valid
+        field.classList.remove("is-invalid");
+        field.removeAttribute("aria-invalid");
+        field.removeAttribute("aria-describedby");
+
+        // Remove error message
+        if (errorElement) {
+          errorElement.remove();
+        }
+      }
+    }
+
+    function handleSubmit(event) {
+      event.preventDefault();
+      
+      // If we get here, validation passed
+      var successMsg = document.getElementById('successMessage');
+      successMsg.classList.add('show');
+      
+      setTimeout(function() {
+        successMsg.classList.remove('show');
+      }, 3000);
+    }
+
+    // Initialize validation when page loads
+    initFormValidation();
+  </script>
+</body>
+</html>

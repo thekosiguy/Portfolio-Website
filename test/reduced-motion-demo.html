@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reduced Motion Support Demo</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      background: #0f172a;
+      color: #e2e8f0;
+    }
+
+    .info-box {
+      background: #1e293b;
+      border: 2px solid #334155;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .info-box h2 {
+      margin-top: 0;
+      color: #60a5fa;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-weight: bold;
+      margin-top: 0.5rem;
+    }
+
+    .status.enabled {
+      background: #10b981;
+      color: white;
+    }
+
+    .status.disabled {
+      background: #ef4444;
+      color: white;
+    }
+
+    .demo-section {
+      background: #1e293b;
+      border-radius: 8px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      min-height: 200px;
+    }
+
+    .demo-card {
+      background: #334155;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Animation styles - same as portfolio */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 420ms ease-out, transform 420ms ease-out;
+    }
+
+    .reveal-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-element {
+      opacity: 0;
+      transform: translateY(10px);
+      animation: hero-fade-up 500ms ease-out forwards;
+      margin-bottom: 1rem;
+    }
+
+    .hero-element:nth-child(2) {
+      animation-delay: 60ms;
+    }
+
+    .hero-element:nth-child(3) {
+      animation-delay: 120ms;
+    }
+
+    .hero-element:nth-child(4) {
+      animation-delay: 180ms;
+    }
+
+    @keyframes hero-fade-up {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Reduced motion support */
+    @media (prefers-reduced-motion: reduce) {
+      .hero-element {
+        animation: none;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .reveal-on-scroll {
+        opacity: 1;
+        transform: translateY(0);
+        transition: none;
+      }
+
+      .reveal-on-scroll.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    code {
+      background: #0f172a;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+
+    .instructions {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+    }
+
+    .instructions strong {
+      color: #78350f;
+    }
+  </style>
+</head>
+<body>
+  <h1>Reduced Motion Support Demo</h1>
+
+  <div class="info-box">
+    <h2>Current Status</h2>
+    <p>Reduced Motion Preference: <span id="motion-status" class="status">Checking...</span></p>
+    <p id="motion-description"></p>
+  </div>
+
+  <div class="instructions">
+    <strong>How to test:</strong>
+    <ul>
+      <li><strong>Windows:</strong> Settings → Accessibility → Visual effects → Animation effects (turn OFF)</li>
+      <li><strong>macOS:</strong> System Preferences → Accessibility → Display → Reduce motion (check)</li>
+      <li><strong>Linux:</strong> Settings → Accessibility → Reduce animation</li>
+    </ul>
+    <p>After changing the setting, refresh this page to see the difference.</p>
+  </div>
+
+  <div class="demo-section">
+    <h2>Hero Animation Demo</h2>
+    <p>These elements should fade up with staggered delays (unless reduced motion is enabled):</p>
+    <div class="hero-element">
+      <div class="demo-card">Element 1 - No delay</div>
+    </div>
+    <div class="hero-element">
+      <div class="demo-card">Element 2 - 60ms delay</div>
+    </div>
+    <div class="hero-element">
+      <div class="demo-card">Element 3 - 120ms delay</div>
+    </div>
+    <div class="hero-element">
+      <div class="demo-card">Element 4 - 180ms delay</div>
+    </div>
+  </div>
+
+  <div class="demo-section">
+    <h2>Scroll Animation Demo</h2>
+    <p>Scroll down to see these elements animate in (unless reduced motion is enabled):</p>
+    <div style="height: 400px;"></div>
+    <div class="demo-card reveal-on-scroll">Card 1 - Animates on scroll</div>
+    <div style="height: 200px;"></div>
+    <div class="demo-card reveal-on-scroll">Card 2 - Animates on scroll</div>
+    <div style="height: 200px;"></div>
+    <div class="demo-card reveal-on-scroll">Card 3 - Animates on scroll</div>
+    <div style="height: 200px;"></div>
+  </div>
+
+  <script>
+    // Check and display reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const statusEl = document.getElementById('motion-status');
+    const descEl = document.getElementById('motion-description');
+
+    if (prefersReducedMotion) {
+      statusEl.textContent = 'ENABLED';
+      statusEl.className = 'status enabled';
+      descEl.textContent = 'Animations are disabled. All elements appear immediately without transitions.';
+    } else {
+      statusEl.textContent = 'DISABLED';
+      statusEl.className = 'status disabled';
+      descEl.textContent = 'Animations are enabled. Elements will fade and slide into view.';
+    }
+
+    // Scroll animation logic (same as portfolio)
+    const scrollTargets = document.querySelectorAll('.reveal-on-scroll');
+
+    if (prefersReducedMotion) {
+      // Skip animations - show all elements immediately
+      scrollTargets.forEach(el => {
+        el.classList.add('is-visible');
+      });
+      console.log('Reduced motion enabled: Skipping scroll animations');
+    } else if ('IntersectionObserver' in window && scrollTargets.length) {
+      const observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.16 }
+      );
+
+      scrollTargets.forEach(el => {
+        observer.observe(el);
+      });
+      console.log('Scroll animations enabled');
+    }
+
+    // Log the preference for debugging
+    console.log('Prefers reduced motion:', prefersReducedMotion);
+  </script>
+</body>
+</html>

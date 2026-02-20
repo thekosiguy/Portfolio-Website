@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keyboard Navigation Demo - Task 3</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    
+    .demo-section {
+      margin: 30px 0;
+      padding: 20px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+    }
+    
+    h1 {
+      color: #333;
+    }
+    
+    h2 {
+      color: #555;
+      margin-top: 0;
+    }
+    
+    .instructions {
+      background: #f5f5f5;
+      padding: 15px;
+      border-radius: 4px;
+      margin: 15px 0;
+    }
+    
+    .instructions h3 {
+      margin-top: 0;
+      color: #2563eb;
+    }
+    
+    .instructions ol {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+    
+    .instructions li {
+      margin: 8px 0;
+    }
+    
+    .nav-toggle {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+    
+    .nav-toggle:hover {
+      background: #1d4ed8;
+    }
+    
+    .nav-toggle:focus {
+      outline: 2px solid #2563eb;
+      outline-offset: 2px;
+    }
+    
+    .nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 15px 0 0 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    
+    .nav-list.is-open {
+      max-height: 300px;
+    }
+    
+    .nav-list li {
+      margin: 5px 0;
+    }
+    
+    .nav-link {
+      display: block;
+      padding: 10px 15px;
+      background: #f0f0f0;
+      color: #333;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+    
+    .nav-link:hover {
+      background: #e0e0e0;
+    }
+    
+    .nav-link:focus {
+      outline: 2px solid #2563eb;
+      outline-offset: 2px;
+      background: #e0e0e0;
+    }
+    
+    .status {
+      margin-top: 15px;
+      padding: 10px;
+      background: #f0f9ff;
+      border-left: 4px solid #2563eb;
+      border-radius: 4px;
+    }
+    
+    .status strong {
+      color: #2563eb;
+    }
+    
+    .success {
+      color: #16a34a;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Keyboard Navigation Demo - Task 3</h1>
+  
+  <div class="demo-section">
+    <h2>Requirements Implemented</h2>
+    <ul>
+      <li><strong>Requirement 3.2:</strong> Navigation toggle responds to keyboard activation</li>
+      <li><strong>Requirement 5.3:</strong> Enter and Space keys activate focused buttons</li>
+      <li><strong>Additional:</strong> Escape key closes menu, focus management implemented</li>
+    </ul>
+  </div>
+
+  <div class="demo-section">
+    <div class="instructions">
+      <h3>How to Test Keyboard Navigation</h3>
+      <ol>
+        <li><strong>Tab to the button:</strong> Press Tab until the "Toggle Navigation" button is focused (you'll see a blue outline)</li>
+        <li><strong>Press Enter or Space:</strong> The navigation menu will open and focus will move to the first link</li>
+        <li><strong>Tab through links:</strong> Press Tab to navigate through the menu items</li>
+        <li><strong>Press Escape:</strong> The menu will close and focus returns to the toggle button</li>
+        <li><strong>Try again:</strong> Repeat to verify the toggle works consistently</li>
+      </ol>
+    </div>
+
+    <h2>Interactive Demo</h2>
+    <nav class="main-nav">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="demo-menu">
+        Toggle Navigation
+      </button>
+      <ul id="demo-menu" class="nav-list">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="status">
+      <strong>Status:</strong> <span id="status-text">Menu is closed</span><br>
+      <strong>aria-expanded:</strong> <span id="aria-status">false</span><br>
+      <strong>Last action:</strong> <span id="last-action">None</span>
+    </div>
+  </div>
+
+  <div class="demo-section">
+    <h2>✓ Implementation Complete</h2>
+    <p class="success">All keyboard navigation features have been successfully implemented:</p>
+    <ul>
+      <li>✓ Enter key activates nav toggle</li>
+      <li>✓ Space key activates nav toggle</li>
+      <li>✓ Escape key closes menu</li>
+      <li>✓ Focus moves to first link when opening</li>
+      <li>✓ Focus returns to toggle when closing with Escape</li>
+      <li>✓ aria-expanded attribute updates correctly</li>
+    </ul>
+  </div>
+
+  <script>
+    // Implementation of keyboard navigation (same as in script.js)
+    document.addEventListener('DOMContentLoaded', function() {
+      const navToggle = document.querySelector('.nav-toggle');
+      const navList = document.querySelector('.nav-list');
+      const statusText = document.getElementById('status-text');
+      const ariaStatus = document.getElementById('aria-status');
+      const lastAction = document.getElementById('last-action');
+
+      function updateStatus() {
+        const isOpen = navList.classList.contains('is-open');
+        const ariaExpanded = navToggle.getAttribute('aria-expanded');
+        statusText.textContent = isOpen ? 'Menu is open' : 'Menu is closed';
+        ariaStatus.textContent = ariaExpanded;
+      }
+
+      if (navToggle && navList) {
+        function toggleNav() {
+          const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+          navToggle.setAttribute('aria-expanded', String(!isExpanded));
+          navList.classList.toggle('is-open');
+          
+          // Focus management: focus first nav link when opening menu
+          if (!isExpanded) {
+            const firstNavLink = navList.querySelector('.nav-link');
+            if (firstNavLink) {
+              firstNavLink.focus();
+            }
+          }
+          
+          updateStatus();
+        }
+
+        // Click handler
+        navToggle.addEventListener('click', function() {
+          toggleNav();
+          lastAction.textContent = 'Mouse click';
+        });
+
+        // Keyboard support: Enter and Space keys
+        navToggle.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleNav();
+            lastAction.textContent = e.key === 'Enter' ? 'Enter key' : 'Space key';
+          }
+        });
+
+        // Escape key to close menu
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && navList.classList.contains('is-open')) {
+            toggleNav();
+            navToggle.focus();
+            lastAction.textContent = 'Escape key';
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
