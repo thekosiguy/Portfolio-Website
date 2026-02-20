@@ -1,58 +1,97 @@
 # Nkosilathi Sibanda's Portfolio
 
-A modern, responsive personal portfolio website showcasing my experience, projects, skills, and certifications as a software engineer specializing in AI and full-stack development.
+MSc Computer Science graduate and former Accenture development analyst & engineer. I build AI-driven, production-ready applications and this portfolio showcases my experience with Gen-AI assistants, RAG workflows, and full-stack development.
 
-Built with vanilla HTML, CSS, and JavaScript.
+**Live Site:** https://portfolio-website-w66z.onrender.com
 
-## 📁 Project Structure
+## ✨ Features
+
+- **Fully Accessible** - WCAG 2.1 Level AA compliant with keyboard navigation, skip links, and screen reader support
+- **Performance Optimized** - Lazy loading, minified assets, and reduced motion support
+- **Responsive Design** - Mobile-first approach with breakpoints at 720px and 900px
+- **Form Validation** - Client-side validation with accessible error messaging
+- **Modern Stack** - Vanilla HTML, CSS, and JavaScript with comprehensive test coverage
+
+## 🚀 Quick Start
+
+### View the Site
+```bash
+# Open directly
+open my-portfolio/index.html
+
+# Or serve locally
+npx serve my-portfolio
+```
+
+### Development
+```bash
+# Install dependencies
+npm install
+
+# Run tests
+npm test
+
+# Build for production
+npm run build
+```
+
+## 🛠️ Tech Stack
+
+- **Frontend:** HTML5, CSS3 (Custom Properties, Grid, Flexbox), Vanilla JavaScript
+- **Build Tools:** PostCSS (autoprefixer, cssnano), Terser
+- **Testing:** Vitest, fast-check, JSDOM
+- **Accessibility:** ARIA attributes, semantic HTML, keyboard navigation
+
+## 📁 Structure
 
 ```
 my-portfolio/
-├── index.html              # Home (hero, highlights, CTAs)
-├── about.html              # About me (bio, skills, fun facts)
-├── portfolio.html          # Projects & featured work
-├── services.html           # Offered services
+├── index.html              # Home with hero and highlights
+├── about.html              # Bio, skills, and background
+├── portfolio.html          # Featured projects
+├── contact.html            # Contact form (Formspree)
+├── services.html           # Service offerings
 ├── testimonials.html       # Client testimonials
-├── contact.html            # Contact form & social links
-├── resume.html             # Online CV & download
-│
+├── resume.html             # Online CV
 ├── css/
-│   └── styles.css          # Responsive styling
-│
+│   ├── styles.css          # Source styles
+│   └── styles.min.css      # Production build
 ├── js/
-│   └── script.js           # Navigation & interactivity
-│
+│   ├── script.js           # Source JavaScript
+│   └── script.min.js       # Production build
 └── assets/
-    ├── images/             # Profile photos & project images
-    │   ├── me.jpg          # Hero image
-    │   └── Graduation.jpg   # About section profile pic
-    ├── icons/              # Social media icons
-    ├── Nkosilathi Sibanda's CV.pdf
-    ├── Nkosilathi Sibanda's Cover Letter.pdf
-    └── Certificates/       # All certifications & achievements
+    ├── images/             # Optimized images
+    └── Nkosilathi Sibanda's CV.pdf
 ```
 
-## 🚀 Getting Started
+## 🧪 Testing
 
-### Open Locally
-Simply open `index.html` in your browser, or use an editor to view/edit files.
+Comprehensive test suite covering:
+- Keyboard navigation and accessibility
+- Form validation with ARIA
+- Reduced motion support
+- Responsive breakpoints
 
-### With a Local Server (Recommended)
 ```bash
-# Using Node.js
-npx serve .
-
-# Or use your editor's "Live Server" extension (VS Code, etc.)
+npm test              # Run all tests
+npm run test:watch    # Watch mode
+npm run test:coverage # Coverage report
 ```
 
-## ✍️ Content Overview
+## 🎯 About Me
 
-- **Experience**: Roles at Accenture, Digital Futures Academy, ENSEK
-- **Skills**: JavaScript, React, TypeScript, Python, Java, C#, AWS, Azure, Gen AI
-- **Projects**: AI assistants, full-stack apps, mobile applications
-- **Certifications**: Oracle Java, OCI, AWS, Google Cloud, and more
-- **Resume**: Comprehensive CV with education and professional timeline
+**Core Stack:** JavaScript, TypeScript, React, Python, Java, C#, HTML/CSS, SQL  
+**Experience:** Gen-AI assistants, RAG workflows, Android apps, full-stack web applications  
+**Cloud:** AWS, Azure, Oracle Cloud, GCP foundations
 
-## 📦 No Dependencies
+Currently seeking permanent full-time software engineering or entry-level AI roles. Open to freelance, short-term contracts, and remote work. Based in the UK, open to relocation to English-speaking countries.
 
-This is a static website with no build tools or external dependencies. Edit, save, and reload in your browser.
+## 📬 Contact
+
+- **Email:** kosi53@hotmail.co.uk
+- **LinkedIn:** [linkedin.com/in/nkosilathisibanda](https://www.linkedin.com/in/nkosilathisibanda)
+- **GitHub:** [github.com/thekosiguy](https://github.com/thekosiguy)
+
+---
+
+Built with attention to accessibility, performance, and user experience.
