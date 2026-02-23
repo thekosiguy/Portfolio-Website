@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // Theme toggle functionality
+  initThemeToggle();
+
   var yearSpan = document.getElementById("current-year");
   if (yearSpan) {
     yearSpan.textContent = String(new Date().getFullYear());
@@ -137,6 +140,42 @@ document.addEventListener("DOMContentLoaded", function () {
   // Contact form validation
   initFormValidation();
 });
+
+/**
+ * Initialize theme toggle with localStorage persistence
+ */
+function initThemeToggle() {
+  // Check for saved theme preference or default to dark
+  var savedTheme = localStorage.getItem("theme") || "dark";
+  document.documentElement.setAttribute("data-theme", savedTheme);
+
+  var themeToggle = document.querySelector(".theme-toggle");
+  if (!themeToggle) return;
+
+  // Update button icon based on current theme
+  updateThemeIcon(savedTheme);
+
+  themeToggle.addEventListener("click", function () {
+    var currentTheme = document.documentElement.getAttribute("data-theme");
+    var newTheme = currentTheme === "dark" ? "light" : "dark";
+    
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+    updateThemeIcon(newTheme);
+  });
+}
+
+/**
+ * Update theme toggle button icon
+ * @param {string} theme - Current theme ("dark" or "light")
+ */
+function updateThemeIcon(theme) {
+  var themeToggle = document.querySelector(".theme-toggle");
+  if (!themeToggle) return;
+  
+  themeToggle.textContent = theme === "dark" ? "☀️" : "🌙";
+  themeToggle.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+}
 
 /**
  * Initialize contact form validation with accessible error messaging
