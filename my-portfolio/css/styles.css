@@ -330,7 +330,7 @@ a:hover {
 .theme-toggle {
   position: fixed;
   right: 1.5rem;
-  top: 1rem;
+  top: 0.85rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
