@@ -48,6 +48,18 @@ describe('Reduced Motion Support', () => {
             this.observedElements = [];
           }
         };
+
+        // Mock matchMedia
+        window.matchMedia = (query) => ({
+          matches: false,
+          media: query,
+          onchange: null,
+          addListener: () => {},
+          removeListener: () => {},
+          addEventListener: () => {},
+          removeEventListener: () => {},
+          dispatchEvent: () => {},
+        });
       }
     });
 

@@ -5,6 +5,23 @@
 
 import { beforeEach, afterEach } from 'vitest';
 
+// Mock localStorage factory
+export const createLocalStorageMock = () => {
+  let store = {};
+  return {
+    getItem: (key) => store[key] || null,
+    setItem: (key, value) => {
+      store[key] = String(value);
+    },
+    removeItem: (key) => {
+      delete store[key];
+    },
+    clear: () => {
+      store = {};
+    }
+  };
+};
+
 // Set up a basic HTML structure before each test
 beforeEach(() => {
   // Reset document body
@@ -13,6 +30,10 @@ beforeEach(() => {
   // Reset viewport size to default
   global.innerWidth = 1024;
   global.innerHeight = 768;
+  
+  // Mock localStorage for global context
+  const localStorageMock = createLocalStorageMock();
+  global.localStorage = localStorageMock;
   
   // Mock window.matchMedia for reduced motion tests
   Object.defineProperty(window, 'matchMedia', {

@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   var scrollTargets = document.querySelectorAll(
-    ".section, .home-card, .project-card, .service-card, .testimonial-card, .blog-card, .contact-form-wrapper, .contact-details, .resume-item, .resume-sidebar"
+    ".section, .home-card, .project-card, .service-card, .testimonial-card, .contact-form-wrapper, .contact-details, .resume-item, .resume-sidebar"
   );
 
   // Check for reduced motion preference

@@ -7,6 +7,7 @@ import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { JSDOM } from 'jsdom';
 import fs from 'fs';
 import path from 'path';
+import { createLocalStorageMock } from './setup.js';
 
 describe('Contact Form Validation', () => {
   let dom;
@@ -30,6 +31,26 @@ describe('Contact Form Validation', () => {
     dom = new JSDOM(html, {
       runScripts: 'outside-only',
       resources: 'usable',
+      beforeParse(window) {
+        // Add localStorage mock to JSDOM window
+        Object.defineProperty(window, 'localStorage', {
+          value: createLocalStorageMock(),
+          writable: true,
+          configurable: true
+        });
+
+        // Add matchMedia mock to JSDOM window
+        window.matchMedia = (query) => ({
+          matches: false,
+          media: query,
+          onchange: null,
+          addListener: () => {},
+          removeListener: () => {},
+          addEventListener: () => {},
+          removeEventListener: () => {},
+          dispatchEvent: () => {},
+        });
+      }
     });
 
     document = dom.window.document;
