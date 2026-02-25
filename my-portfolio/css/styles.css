@@ -322,6 +322,7 @@ a:hover {
   align-items: center;
   justify-content: space-between;
   padding-block: 0.7rem;
+  padding-right: 4rem;
   gap: 1.25rem;
   position: relative;
 }
@@ -337,10 +338,11 @@ a:hover {
   height: 2.3rem;
   border-radius: 999px;
   border: 1px solid rgba(148, 163, 184, 0.5);
-  background: rgba(15, 23, 42, 0.95);
+  background: rgba(15, 23, 42, 0.98);
   cursor: pointer;
   font-size: 1.1rem;
   z-index: 100;
+  backdrop-filter: none;
   transition: background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
 }
 
@@ -448,22 +450,37 @@ a:hover {
 .nav-toggle {
   display: inline-flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 0.2rem;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 0;
   width: 2.3rem;
   height: 2.3rem;
   border-radius: 999px;
   border: 1px solid rgba(148, 163, 184, 0.5);
   background: rgba(15, 23, 42, 0.95);
   cursor: pointer;
+  padding: 0.55rem 0.65rem;
+}
+
+[data-theme="light"] .nav-toggle {
+  background: rgba(241, 245, 249, 0.98);
+  border-color: rgba(71, 85, 105, 0.5);
 }
 
 .nav-toggle-bar {
-  height: 2px;
-  width: 50%;
+  height: 1.5px;
+  width: 100%;
   background: var(--color-text);
-  border-radius: 999px;
-  margin: 0 auto;
+  border-radius: 0;
+  margin: 0;
+  display: block;
+  flex-shrink: 0;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+[data-theme="light"] .nav-toggle-bar {
+  background: #0f172a;
 }
 
 .hero {
@@ -1396,6 +1413,7 @@ textarea.is-invalid:focus {
 @media (min-width: 720px) {
   .header-inner {
     padding-block: 0.9rem;
+    padding-right: 4rem;
   }
 
   .nav-toggle {
